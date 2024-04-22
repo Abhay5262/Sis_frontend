@@ -1,0 +1,167 @@
+<mat-form-field>
+    <mat-label>Enter Id</mat-label>
+    <input matInput placeholder="enter id" #id="ngModel" name="id" ngModel required >
+</mat-form-field>
+    <td> <button mat-raised-button color="primary" (click)="getdatabyid(id.value)">show data</button></td>
+
+
+    <div class="bootstrap-wrapper" *ngIf="Student">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 offset-md-3 mt-5">
+              <form novalidate #form="ngForm" (submit)="delete(id.value)">
+              
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>enrollmentNo</mat-label>
+                    <input matInput placeholder="enter firstname" #enrollmentNo="ngModel" name="enrollmentNo"  [(ngModel)]="Student.enrollmentNo" required readonly>
+                  </mat-form-field>
+                  <div class="alert alert-danger" *ngIf="enrollmentNo.touched && enrollmentNo.invalid">
+                    <div *ngIf="enrollmentNo.errors && enrollmentNo.errors['required']">
+                      <strong> enrollmentNo is required</strong>
+                    </div>
+                  </div>
+      
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Paasword</mat-label>
+                    <input type="password"  matInput placeholder="enter password" #password="ngModel" name="password" [(ngModel)]="Student.password"required readonly>
+                  </mat-form-field>
+                  <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                    <div *ngIf="password.errors && password.errors['required']">
+                      <strong> password is required</strong>
+                    </div>
+                    </div>
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>name</mat-label>
+                  <input matInput placeholder="enter name" #name="ngModel" name="name" [(ngModel)]="Student.name" required readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                  <div *ngIf="name.errors && name.errors['required']">
+                    <strong> name is required.</strong>
+                  </div>
+                </div>
+      
+                <label>Gender: </label>
+                <mat-radio-group name="gender" required [(ngModel)]="Student.gender" >
+                  <mat-radio-button  value="Male">Male</mat-radio-button>
+                  <mat-radio-button  value="Female">Female</mat-radio-button>
+                </mat-radio-group>
+                
+                <mat-form-field class="w-100">
+                  <mat-label>Birth-date</mat-label>
+                  <input matInput [matDatepicker]="picker" #dob="ngModel" name="dob" [(ngModel)]="Student.dob" required readonly >
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="dob.touched && dob.invalid">
+                  <div *ngIf="dob.errors && dob.errors['required']">
+                    <strong> dob is required</strong>
+                  </div>
+                  </div>
+
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Branch</mat-label>
+                    <mat-select #branch="ngModel" name="branch" [(ngModel)]="Student.branch"  required >
+                      <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="alert alert-danger" *ngIf="branch.touched && branch.invalid">
+                    <div *ngIf="branch.errors && branch.errors['required']">
+                      <strong> Select Any One branch</strong>
+                    </div>
+                    </div>
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Contact number</mat-label>
+                  <input matInput placeholder="enter Contact Number" #contact="ngModel" name="contact" [(ngModel)]="Student.contact" required readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="contact.touched && contact.invalid">
+                  <div *ngIf="contact.errors && contact.errors['required']">
+                    <strong> Contact Number is required</strong>
+                  </div>
+                  </div>
+      
+      
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <input matInput placeholder="enter valid Address" #address="ngModel" name="address" [(ngModel)]="Student.address" required readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+                  <div *ngIf="address.errors && address.errors['required']">
+                    <strong> address is required</strong>
+                  </div>
+                  </div>
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>city</mat-label>
+                  <input matInput placeholder="enter valid city" #city="ngModel" name="city" [(ngModel)]="Student.city" required readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+                  <div *ngIf="city.errors && city.errors['required']">
+                    <strong> city is required</strong>
+                  </div>
+                  </div>
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>pinCode</mat-label>
+                  <input matInput placeholder="enter valid pinCode" #pinCode="ngModel" name="pinCode" [(ngModel)]="Student.pinCode" required readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="pinCode.touched && pinCode.invalid">
+                  <div *ngIf="pinCode.errors && pinCode.errors['required']">
+                    <strong> pinCode is required</strong>
+                  </div>
+                  </div>
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>securityKey</mat-label>
+                  <input matInput placeholder="enter valid pinCode" #securityKey="ngModel" name="securityKey" [(ngModel)]="Student.securityKey" required readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="securityKey.touched && securityKey.invalid">
+                  <div *ngIf="securityKey.errors && securityKey.errors['required']">
+                    <strong> securityKey is required</strong>
+                  </div>
+                  </div>
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>securityKey</mat-label>
+                  <input matInput placeholder="enter valid pinCode" #securityKey="ngModel" name="securityKey" [(ngModel)]="Student.securityKey" required readonly> 
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="securityKey.touched && securityKey.invalid">
+                  <div *ngIf="securityKey.errors && securityKey.errors['required']">
+                    <strong> securityKey is required</strong>
+                  </div>
+                  </div>
+             
+            
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>role</mat-label>
+                  <input type="text"  matInput placeholder="enter role" #role="ngModel" name="role" [(ngModel)]="Student.role" required readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="role.touched && role.invalid">
+                  <div *ngIf="role.errors && role.errors['required']">
+                    <strong> role is required</strong>
+                  </div>
+                  </div>
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>email</mat-label>
+                  <input type="email"  matInput placeholder="enter email" #email="ngModel" name="email" [(ngModel)]="Student.email" required  readonly>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                  <div *ngIf="email.errors && email.errors['required']">
+                    <strong> email is required</strong>
+                  </div>
+                  </div>
+            
+      
+                <div class="d-grid">
+                  <button type="submit" mat-raised-button color="primary"  >Delete</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>

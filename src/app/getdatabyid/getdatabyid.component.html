@@ -1,0 +1,43 @@
+<mat-form-field>
+<mat-label>Enter Id</mat-label>
+<input matInput placeholder="enter id" #id="ngModel" name="id" ngModel required >
+</mat-form-field>
+<button  mat-raised-button color="primary" (click)="getdatabyid(id.value)" [disabled]="id.invalid">getdatabyid</button>
+<div *ngIf="Student">
+    <table class="table table-bordered ">
+ 
+        <tr>
+            <th>Sno</th>
+            <th>enrollmentNo</th>
+            <th>password</th>
+            <th>name</th>
+            <th>gender</th>
+            <th>birthdate</th>
+            <th>branch</th>
+            <th>contact</th>
+            <th>address</th>
+            <th>city</th>
+            <th>pinCode</th>
+            <th>securityKey</th>
+            <th>role</th>
+        </tr>
+        <tr *ngFor="let student of Student;index as i">
+       
+            <td>{{i+1}}</td>
+            <td>{{student.enrollmentNo}}</td>
+            <td>{{student.password}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.birthdate}}</td>
+            <td>{{student.branch}}</td>
+            <td>{{student.contact}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.city}}</td>
+            <td>{{student.pinCode}}</td>
+            <td>{{student.securityKey}}</td>
+            <td>{{student.role}}</td>
+     
+        </tr>
+       
+    </table>
+    </div>

@@ -1,0 +1,139 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 mt-5">
+        <form [formGroup]="regForm" (ngSubmit)="postdata(regForm.value)">
+        
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>id</mat-label>
+            <input matInput placeholder="enter ID" name="id" formControlName="id" required>
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="regForm.get('id').touched && regForm.get('id').invalid">
+            <div *ngIf="regForm.get('id').errors && regForm.get('id').errors['required']">
+              <strong>id is required</strong>
+            </div>
+          </div>
+
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>password</mat-label>
+              <input matInput placeholder="enter password" name="password" formControlName="password" required>
+            </mat-form-field>
+            <div class="alert alert-danger" *ngIf="regForm.get('password').touched && regForm.get('password').invalid">
+              <div *ngIf="regForm.get('password').errors && regForm.get('password').errors['required']">
+                <strong>password is required</strong>
+              </div>
+            </div>
+
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>name</mat-label>
+            <input matInput placeholder="enter name" name="name" formControlName="name" required>
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="regForm.get('name').touched && regForm.get('name').invalid">
+            <div *ngIf="regForm.get('name').errors && regForm.get('name').errors['required']">
+              <strong>name is required</strong>
+            </div>
+          </div>
+
+          <label>Gender: </label>
+          <mat-radio-group name="gender" required formControlName="gender">
+            <mat-radio-button  value="Male">Male</mat-radio-button>
+            <mat-radio-button  value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+          
+          <mat-form-field class="w-100">
+            <mat-label>Birth-date</mat-label>
+            <input matInput [matDatepicker]="picker" name="dob" formControlName="dob" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="regForm.get('dob').touched && regForm.get('dob').invalid">
+            <div *ngIf="regForm.get('dob').errors && regForm.get('dob').errors['required']">
+              <strong>dob is required</strong>
+            </div>
+          </div>
+        
+            <!-- <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Branch</mat-label>
+              <mat-select  name="branch" formControlName="branch" >
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field> -->
+            <!-- <div class="alert alert-danger" *ngIf="regForm.get('branch').touched && regForm.get('branch').invalid">
+              <div *ngIf="regForm.get('branch').errors && regForm.get('branch').errors['required']">
+                <strong>branch is required</strong>
+              </div>
+            </div> -->
+
+            <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Contact number</mat-label>
+            <input matInput placeholder="enter Contact Number" name="contact" formControlName="contact" required>
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="regForm.get('contact').touched && regForm.get('contact').invalid">
+            <div *ngIf="regForm.get('contact').errors && regForm.get('contact').errors['required']">
+              <strong>contact is required</strong>
+            </div>
+          </div>
+
+
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="enter valid Address" name="address" formControlName="address" required>
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="regForm.get('address').touched && regForm.get('address').invalid">
+            <div *ngIf="regForm.get('address').errors && regForm.get('address').errors['required']">
+              <strong>address is required</strong>
+            </div>
+          </div>
+       
+      
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>city</mat-label>
+            <input type="text"  matInput placeholder="enter  city" name="city" formControlName="city" required>
+          </mat-form-field>
+          <!-- <div class="alert alert-danger" *ngIf="regForm.get('city').touched && regForm.get('city').invalid">
+            <div *ngIf="regForm.get('city').errors && regForm.get('city').errors['required']">
+              <strong>city is required</strong>
+            </div>
+          </div> -->
+      
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>pinCode</mat-label>
+            <input type="number"  matInput placeholder="enter pinCode"  name="pincode" formControlName="pincode" required>
+          </mat-form-field>
+          <!-- <div class="alert alert-danger" *ngIf="regForm.get('pinCode').touched && regForm.get('pinCode').invalid">
+            <div *ngIf="regForm.get('pinCode').errors && regForm.get('pinCode').errors['required']">
+              <strong>pinCode is required</strong>
+            </div>
+          </div> -->
+
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>securityKey</mat-label>
+            <input type="text"  matInput placeholder="enter securityKey"  name="securityKey" formControlName="securitykey" required>
+          </mat-form-field>
+          <!-- <div class="alert alert-danger" *ngIf="regForm.get('securityKey').touched && regForm.get('securityKey').invalid">
+            <div *ngIf="regForm.get('securityKey').errors && regForm.get('securityKey').errors['required']">
+              <strong>securityKey is required</strong>
+            </div>
+          </div> -->
+
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>email</mat-label>
+            <input type="text"  matInput placeholder="enter email"  name="email" formControlName="email" required>
+          </mat-form-field>
+          <!-- <div class="alert alert-danger" *ngIf="regForm.get('email').touched && regForm.get('email').invalid">
+            <div *ngIf="regForm.get('email').errors && regForm.get('email').errors['required']">
+              <strong>email is required</strong>
+            </div>
+          </div> -->
+
+          <div class="d-grid">
+            <button  mat-raised-button color="primary"  >submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  
