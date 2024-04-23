@@ -36,9 +36,11 @@ displaycolumns:string[]=['enrollmentNo','password','name','gender','dob','branch
 constructor(private api:DataproviderService,private dialog:MatDialog)
 {
   this.getalldata();
+  
 }
 
 openDialog(tmp:any): void {
+  
   const dialogRef = this.dialog.open(UpdateComponent, {
     data: {info:tmp},
   });
@@ -81,6 +83,7 @@ getalldata()
 {
   this.api.getalljwtdata().subscribe((data)=>
   {
+    // window.location.reload()
     this.userlist=data
     console.log('get all data',data);
     this.datasource=new MatTableDataSource<any>(this.userlist);

@@ -26,6 +26,7 @@ export class LoginComponent {
       (res:any)=>{
         
         console.log("Success",res);
+        this.data.session={username:'xyz'};
         localStorage.setItem("token", res.token);
         // alert(JSON.stringify(res)); 
         if(rolebase=='ROLE_USER')

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataproviderService } from '../services/dataprovider.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
+  constructor(private rout:Router,public auth:DataproviderService) {}
+  reg=localStorage.getItem('token');
+  logout(){
+    this.auth.session=null;
+    localStorage.removeItem('token');
+    this.rout.navigate(['/login']);
+  }
 }

@@ -26,6 +26,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 import { GetdatabyidComponent } from './getdatabyid/getdatabyid.component';
@@ -43,6 +44,11 @@ import { TemplinkComponent } from './templink/templink.component';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UserregisterComponent } from './userregister/userregister.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { FeeComponent } from './fee/fee.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxUiLoaderHttpModule } from 'ngx-ui-loader/public-api';
+import { ShowfeeComponent } from './showfee/showfee.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +69,8 @@ import { UserregisterComponent } from './userregister/userregister.component';
     TemplinkComponent,
     DialogComponent,
     UserregisterComponent,
+    FeeComponent,
+    ShowfeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,12 +94,9 @@ import { UserregisterComponent } from './userregister/userregister.component';
     MatCardModule,
     ReactiveFormsModule,
     MatDialogModule,
-  
-
-
-
- 
-    
+    MatSidenavModule,
+    MatMenuModule,
+    // NgxUiLoaderModule,
   ],
   providers: [DataproviderService,HttpClientModule,authInterceptorProviders,  DatePipe],
   bootstrap: [AppComponent]

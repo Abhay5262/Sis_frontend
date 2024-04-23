@@ -1,8 +1,9 @@
 <div >
     <mat-toolbar color="primary">
         <span class="example-spacer"></span>
-        <button mat-flat-button color="primary" routerLink="/login" >Login</button>
-        <button mat-flat-button color="primary" routerLink="/userregister"  >register</button>
+        <button mat-flat-button color="primary" routerLink="/login"  *ngIf="!auth.session" >Login</button>
+        <button mat-flat-button color="primary" routerLink="/userregister" *ngIf="!auth.session" >register</button>
+        <button mat-flat-button color="primary" (click)="logout()"  *ngIf="auth.session">LogOut</button>
         <!-- <button mat-flat-button color="primary" routerLink="/register"  >register</button> -->
 
         <!-- <button mat-flat-button color="primary" routerLink="/all"  >getall</button>

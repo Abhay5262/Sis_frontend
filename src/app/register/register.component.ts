@@ -38,7 +38,7 @@ export class RegisterComponent {
   }
 
   postdata(post:any){
-    this.regForm.value.role='ROLE_ADMIN'
+    this.regForm.value.role='ROLE_USER'
     this.save.savedata(post).subscribe(
       (res)=>{
         console.log("Data Saved Successfully",res,{ResponseType:"text"});

@@ -1,0 +1,77 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <form [formGroup]="regForm" (ngSubmit)="postdata()">
+        
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>id</mat-label>
+                  <input matInput placeholder="enter ID" name="id" formControlName="id" required>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="regForm.get('id').touched && regForm.get('id').invalid">
+                  <div *ngIf="regForm.get('id').errors && regForm.get('id').errors['required']">
+                    <strong>id is required</strong>
+                  </div>
+                </div> 
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>enrollmentNo</mat-label>
+                  <input matInput placeholder="enter enrollmentNo" name="enrollmentNo" formControlName="enrollmentNo" required>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="regForm.get('enrollmentNo').touched && regForm.get('enrollmentNo').invalid">
+                  <div *ngIf="regForm.get('enrollmentNo').errors && regForm.get('enrollmentNo').errors['required']">
+                    <strong>id is required</strong>
+                  </div>
+                </div> 
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>feeamount</mat-label>
+                  <input matInput placeholder="enter feeamount" name="feeamount" formControlName="feeamount" required>
+                </mat-form-field>
+                <div class="alert alert-danger" *ngIf="regForm.get('feeamount').touched && regForm.get('feeamount').invalid">
+                  <div *ngIf="regForm.get('feeamount').errors && regForm.get('feeamount').errors['required']">
+                    <strong>id is required</strong>
+                  </div>
+                </div> 
+
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>updatedby</mat-label>
+                  <input matInput placeholder="enter updatedby" name="updatedby" formControlName="updatedby" required>
+                </mat-form-field>
+                <!-- <div class="alert alert-danger" *ngIf="regForm.get('updatedby').touched && regForm.get('updatedby').invalid">
+                  <div *ngIf="regForm.get('updatedby').errors && regForm.get('updatedby').errors['required']">
+                    <strong>updatedby is required</strong>
+                  </div>
+                </div>  -->
+    <div>                  
+            <mat-form-field class="w-100">
+                <mat-label>dueDate</mat-label>
+                <input matInput [matDatepicker]="picker" name="dueDate" formControlName="dueDate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <!-- <div class="alert alert-danger" *ngIf="regForm.get('dueDate').touched && regForm.get('dueDate').invalid">
+                <div *ngIf="regForm.get('dueDate').errors && regForm.get('dueDate').errors['required']">
+                  <strong>dob is required</strong>
+                </div>
+              </div> -->
+
+
+              <mat-form-field class="w-100">
+                <mat-label>updatedDate</mat-label>
+                <input matInput [matDatepicker]="picker_a" name="updatedDate" formControlName="updatedDate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker_a"></mat-datepicker-toggle>
+                <mat-datepicker #picker_a></mat-datepicker>
+              </mat-form-field>
+              <!-- <div class="alert alert-danger" *ngIf="regForm.get('updatedDate').touched && regForm.get('updatedDate').invalid">
+                <div *ngIf="regForm.get('updatedDate').errors && regForm.get('updatedDate').errors['required']">
+                  <strong>updatedDate is required</strong>
+                </div>
+              </div> -->
+    </div>
+    <div class="d-grid">
+        <button  mat-raised-button color="primary"  >submit</button>
+      </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

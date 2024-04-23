@@ -16,7 +16,7 @@ export class UserregisterComponent {
   regForm: any;
   constructor(private save:DataproviderService,private router:Router,private fb:FormBuilder){
     this.regForm = this.fb.group({
-      id: ['', [Validators.required,]],
+      enrollmentNo: ['', [Validators.required,]],
       password:['',[Validators.required]],
       name: ['', [Validators.required,]],
       dob: ['', Validators.required],
@@ -31,9 +31,9 @@ export class UserregisterComponent {
       email: ['', [Validators.required, Validators.email]],
     });
   }
-  postdata(post:any){
+  postdata(){
     this.regForm.value.role='ROLE_USER'
-    this.save.registerdata(post).subscribe(
+    this.save.registerdata(this.regForm.value).subscribe(
       (res)=>{
         console.log("Data Saved Successfully",res,{ResponseType:"text"});
         alert(res)

@@ -1,4 +1,12 @@
+
 <app-getalldata></app-getalldata>
 <div style="display: flex; justify-content: center" class="mt-5" >
 <button mat-flat-button color="primary" routerLink="/register"  >RegisterAdmin</button>
+&nbsp;
+
+<button mat-button color="primary" [matMenuTriggerFor]="menu">Add More Details</button>
+<mat-menu #menu="matMenu">
+  <button  mat-menu-item color="primary"  routerLink="/fee">Add fee Details</button>
+  <!-- <button mat-menu-item>Item 2</button> -->
+</mat-menu>
 </div>

@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataproviderService  {
+
+  public session:any=null;
+
   // private baseurl="http://localhost:8080/";
   private authurl="http://localhost:8090/auth/login"
   private getalljwt="http://localhost:8090/admin/";
@@ -21,6 +24,7 @@ export class DataproviderService  {
   private delteuser="http://localhost:8090/admin/deleteUser/"
   private templink="http://localhost:8090/auth/tempurl/"
   private registeruser="http://localhost:8090/user/register"
+  private fee="http://localhost:8090/admin/addFeeDetails"
 
   constructor(private http:HttpClient) {}
   // getdata(){
@@ -66,5 +70,8 @@ export class DataproviderService  {
   }
   registerdata(post:any){
     return this.http.post(this.registeruser,post,{responseType:'text'})
+  }
+  feeadd(post:any){
+    return this.http.post(this.fee,post,{responseType:'text'})
   }
 }

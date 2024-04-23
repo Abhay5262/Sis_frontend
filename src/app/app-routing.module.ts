@@ -15,6 +15,7 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
 import { VerifyComponent } from './verify/verify.component';
 import { TemplinkComponent } from './templink/templink.component';
 import { UserregisterComponent } from './userregister/userregister.component';
+import { FeeComponent } from './fee/fee.component';
 
 const routes: Routes = [
   {
@@ -106,6 +107,11 @@ const routes: Routes = [
   {
     path:"userregister",
     component:UserregisterComponent,
+    pathMatch:'full'
+  },
+  {
+    path:"fee",
+    component:FeeComponent,
     pathMatch:'full'
   }
  

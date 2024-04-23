@@ -2,17 +2,17 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3 mt-5">
-          <form [formGroup]="regForm" (ngSubmit)="postdata(regForm.value)">
+          <form [formGroup]="regForm" (ngSubmit)="postdata()">
           
             <mat-form-field class="w-100" appearance="outline">
-              <mat-label>id</mat-label>
-              <input matInput placeholder="enter ID" name="id" formControlName="id" required>
+              <mat-label>enrollmentNo</mat-label>
+              <input matInput placeholder="enter enrollmentNo" name="enrollmentNo" formControlName="enrollmentNo" required>
             </mat-form-field>
-            <div class="alert alert-danger" *ngIf="regForm.get('id').touched && regForm.get('id').invalid">
+            <!-- <div class="alert alert-danger" *ngIf="regForm.get('id').touched && regForm.get('id').invalid">
               <div *ngIf="regForm.get('id').errors && regForm.get('id').errors['required']">
-                <strong>id is required</strong>
+                <strong>enrollmentNo is required</strong>
               </div>
-            </div>
+            </div> -->
   
               <mat-form-field class="w-100" appearance="outline">
                 <mat-label>password</mat-label>
